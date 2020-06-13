@@ -1,0 +1,60 @@
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/growth_data.csv", 
+              destfile = "growth_data.csv")
+x<- read.csv("growth_data.csv", header = TRUE)
+head(x)
+str(x)
+
+mean(x$Circumf_2004_cm)
+subset(x, Site=="northeast")
+head(x)
+str(x)
+subset(x, Site=="southwest")
+head(x)
+str(x)
+NE <- subset(x, Site=="northeast")
+head(NE)
+str(NE)
+SW <- subset(x, Site=="southwest")
+head(SW)
+str(SW)
+mean(NE$Circumf_2004_cm)
+mean(SW$Circumf_2004_cm)
+mean(NE$Circumf_2019_cm)
+mean(SW$Circumf_2019_cm)
+sd(SW$Circumf_2019_cm)
+sd(NE$Circumf_2019_cm)
+sd(SW$Circumf_2004_cm)
+sd(NE$Circumf_2004_cm)
+head(NE)
+head(SW)
+
+boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm)
+boxplot(NE$Circumf_2004_cm,NE$Circumf_2019_cm,SW$Circumf_2004_cm,SW$Circumf_2019_cm,names= c("NE2004","NE2019","SW2004","SW2019"), slab="Circumference (cm)", xlab="site and years", main="Growth at plantation site")
+
+mean(NE$Circumf_2009_cm)
+c <- mean(NE$Circumf_2009_cm)
+mean(NE$Circumf_2019_cm)
+d <- mean(NE$Circumf_2019_cm)
+x <- sum(c,d)
+mean <- a/2
+mean(SW$Circumf_2009_cm)
+q <- mean(SW$Circumf_2009_cm)
+mean(SW$Circumf_2019_cm)
+r <- mean(SW$Circumf_2019_cm)
+s <- sum(q,r)
+mean <- s/2
+NEmean <- NE$Circumf_2019_cm-NE$Circumf_2009_cm
+NE$growth <- NE$Circumf_2019_cm-NE$Circumf_2009_cm
+mean(NE$growth)
+head(NE$growth)
+head(NE)
+str(NE)
+SWmean <- SW$Circumf_2019_cm-SW$Circumf_2009_cm
+SW$growth <- SW$Circumf_2019_cm-SW$Circumf_2009_cm
+mean(SW$growth)
+head(SW$groth)
+head(SW)
+str(SW)
+
+t.test(NE$growth,SW$growth)
+wilcox.test(NE$growth,SW$growth)
