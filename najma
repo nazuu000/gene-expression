@@ -1,0 +1,17 @@
+download.file("https://raw.githubusercontent.com/markziemann/SLE712_files/master/bioinfo_asst3_part1_files/gene_expression.tsv",
+              destfile="gene_expression.tsv")
+a<- read.table("gene_expression.tsv")
+a <-read.table("gene_expression.tsv", header= TRUE, row.names = 1)
+head(a)
+str(a)
+a$mean <- rowMeans(a)
+head(a)
+order(-a$mean)
+a[order(-a$mean), ]
+a_sorted <- a[order(-a$mean), ]
+head(a_sorted,10)
+x <- subset(a, mean<10) 
+head(x)
+str(a)
+hist(a$mean)
+hist(a$mean, breaks = 20)
